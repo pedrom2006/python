@@ -1,0 +1,26 @@
+def carrera_que_mas_utiliza_ascensor():
+    # Inicializar un diccionario para almacenar el uso del ascensor por cada carrera
+    usos_por_carrera = {}
+
+    # Solicitar el número de estudiantes
+    n = int(input("Ingrese el número de estudiantes: "))
+
+    # Recopilar los datos de uso del ascensor por cada estudiante
+    for i in range(n):
+        carrera_actual = input(f"Ingrese la carrera del estudiante {i+1}: ")
+        usos_actuales = int(input("Ingrese la cantidad de veces que ha utilizado el ascensor: "))
+
+        # Sumar los usos al total de la carrera en el diccionario
+        if carrera_actual not in usos_por_carrera:
+            usos_por_carrera[carrera_actual] = 0
+        usos_por_carrera[carrera_actual] += usos_actuales
+
+    # Encontrar la carrera con más uso del ascensor
+    carrera_max_uso = max(usos_por_carrera, key=usos_por_carrera.get)
+    mayor_uso = usos_por_carrera[carrera_max_uso]
+
+    # Mostrar el resultado
+    print(f"La carrera que más utiliza el ascensor es: {carrera_max_uso} con {mayor_uso} usos.")
+
+# Llamar a la función para ejecutar el algoritmo
+carrera_que_mas_utiliza_ascensor()
